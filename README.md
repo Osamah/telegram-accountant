@@ -5,6 +5,17 @@ Send your documents and pictures of your bonnekes to your telegram boekhouder wh
 
 ## How to set up
 - [Create Google service account](https://developers.google.com/workspace/guides/create-credentials#service-account)
+- [Enable Google Drive API](https://support.google.com/googleapi/answer/6158841)
+- Share your Drive folder with the new service account. The Telegram Boekhouder assumes the following folder structure:
+    - Boekhouding:
+        - 2024
+        - 2025
+            - 01 - Januari
+            - 02 - Februari
+            - 03 - March
+                - Aankoop
+                - Verkoop
+            - ...
 - [Create Telegram Bot](https://t.me/BotFather)
 - Fill in `.env` file
 - Copy your service accounts details to `secret.json`
