@@ -1,8 +1,26 @@
 {
+  "name": "telegram-accountant",
+  "description": "Send your documents and pictures of your bonnekes to your telegram boekhouder who will automatically rename and put them in the correct Google Drive folder for you",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Osamah/telegram-accountant.git"
+  },
+  "author": "Osamah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Osamah/telegram-accountant/issues"
+  },
+  "homepage": "https://github.com/Osamah/telegram-accountant#readme",
   "dependencies": {
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "googleapis": "^135.0.0",
     "telegraf": "^4.16.3"
-  }
+  },
+  "devDependencies": {}
 }
