@@ -27,4 +27,8 @@ Send your documents and pictures of your bonnekes to your telegram boekhouder wh
 - It will ask you for a description of this cost
     - You can now send a date if you want in the `MMDD` (_1125_ for example) or `YYYYMMDD` (_20241125_ for example) format, if you don't specify a date it will use today
 - After sending a description it will upload the document to your drive
+- You can also add a caption to the document while sending it in the following formats and it will be automatically picked up:
+    - `description`
+    - `MMDD description`
+    - `YYYYMMDD description`
 - Done
