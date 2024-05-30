@@ -105,16 +105,7 @@ bot.on("document", async (ctx) => {
   ctx.session.fileUrl = await ctx.telegram.getFileLink(fileId);
   ctx.session.fileExtension = getFileExtension(fileName);
 
-  if (ctx.message.caption) {
-    const regex = /^(?:(\d{8}|\d{4}) )?(.*)$/;
-    const [, date, description] = ctx.message.caption.match(regex);
-
-    ctx.session.description = description.toLowerCase().replace(/ /g, "_");
-
-    if (date)
-      ctx.session.date =
-        date.length === 8 ? date : `${new Date().getFullYear()}${date}`;
-  }
+  handleCaption(ctx);
 
   await ctx.scene.enter("doc");
 });
@@ -126,8 +117,23 @@ bot.on("photo", async (ctx) => {
   ctx.session.fileUrl = await ctx.telegram.getFileLink(fileId);
   ctx.session.fileExtension = "jpg";
 
-  ctx.scene.enter("doc");
+  handleCaption(ctx);
+
+  await ctx.scene.enter("doc");
 });
+
+function handleCaption(ctx) {
+  if (ctx.message.caption) {
+    const regex = /^(?:(\d{8}|\d{4}) )?(.*)$/;
+    const [, date, description] = ctx.message.caption.match(regex);
+
+    ctx.session.description = description.toLowerCase().replace(/ /g, "_");
+
+    if (date)
+      ctx.session.date =
+        date.length === 8 ? date : `${new Date().getFullYear()}${date}`;
+  }
+}
 
 function getFileExtension(filename) {
   return filename?.split(".").pop().toLowerCase();
